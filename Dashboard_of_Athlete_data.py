@@ -6,10 +6,8 @@ from lightningchart import Dashboard
 
 #%%
 df = pd.read_csv('athletes.csv')
-with open("Licence", "r") as file:
-    license_key = file.readline().strip()
 
-lc.set_license(license_key)
+lc.set_license('Licence')
 #Pie data
 
 df = df[df['gender'] != '--']
