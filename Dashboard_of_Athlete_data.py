@@ -13,7 +13,6 @@ lc.set_license(license_key)
 #Pie data
 
 df = df[df['gender'] != '--']
-df['gender'].describe()
 
 # Calculate the counts of each gender
 gender_counts = df['gender'].value_counts()
@@ -84,10 +83,10 @@ textbox = chart.add_textbox(position_scale='percentage', text="q3", )
 textbox.set_position(x=65, y=22)
 
 #Coloring median and quartiles bars
-chart.set_bars_color(lc.Color('green'))
-chart.set_bar_color(str(median), lc.Color('yellow'))
-chart.set_bar_color(str(q1), lc.Color('blue'))
-chart.set_bar_color(str(q3), lc.Color('red'))
+chart.set_bars_color(lc.Color('lightgreen'))
+chart.set_bar_color(str(median), lc.Color('wheat'))
+chart.set_bar_color(str(q1), lc.Color('midnightblue'))
+chart.set_bar_color(str(q3), lc.Color('orchid'))
 
 # dashboard.open()
 
@@ -125,14 +124,16 @@ textbox.set_position(x=36.5, y=92)
 textbox = chart.add_textbox(position_scale='percentage', text="q3", )
 textbox.set_position(x=57.9, y=52.7)
 
-chart.set_bars_color(lc.Color('green'))
-chart.set_bar_color(str(median), lc.Color('yellow'))
-chart.set_bar_color(str(q1), lc.Color('blue'))
-chart.set_bar_color(str(q3), lc.Color('red'))
+chart.set_bars_color(lc.Color('lightgreen'))
+chart.set_bar_color(str(median), lc.Color('wheat'))
+chart.set_bar_color(str(q1), lc.Color('midnightblue'))
+chart.set_bar_color(str(q3), lc.Color('orchid'))
 
 chart.set_sorting('disabled')
 
 # dashboard.open(method="browser")
+
+######Height histogram
 
 df.loc[:, 'height_meters'] = df['height'] * 0.0254
 df.loc[:, 'height_meters'] = df['height_meters'].round(2)
@@ -163,20 +164,7 @@ chart.set_title(title=f'Height Distribution in Meters of {len(height_data)} Cros
 chart.set_data(histogram_data)
 chart.set_sorting('disabled')
 
-#Setting up median and quartiles indicators
-# textbox = chart.add_textbox(position_scale='percentage', text="Median")
-# textbox.set_position(x=51, y=22.5)
-#
-# textbox = chart.add_textbox(position_scale='percentage', text="q1")
-# textbox.set_position(x=34.7, y=17)
-#
-# textbox = chart.add_textbox(position_scale='percentage', text="q3", )
-# textbox.set_position(x=64.5, y=18)
-
 #Coloring median and quartiles bars
-chart.set_bars_color(lc.Color('blue'))
-# chart.set_bar_color(str(median), lc.Color('yellow'))
-# chart.set_bar_color(str(q1), lc.Color('blue'))
-# chart.set_bar_color(str(q3), lc.Color('red'))
-# Show the chart
+chart.set_bars_color(lc.Color('midnightblue'))
+
 dashboard.open(method='browser')
